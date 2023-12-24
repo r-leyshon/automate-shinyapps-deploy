@@ -1,5 +1,8 @@
 from shiny import App, render, ui
-from datetime import datetime
+# get the saved time
+with open("saved_time.txt", "r") as f:
+    nw = f.readlines()[0]
+    f.close()
 
 app_ui = ui.page_fluid(
     ui.h2("Testing Deploy Schedule."),
@@ -10,8 +13,6 @@ def server(input, output, session):
     @output
     @render.text
     def txt():
-        nw = datetime.now()
-        nw = datetime.strftime(nw, "%Y-%m-%d %H:%M:%S")
         return f"Deployed at {nw}."
 
 app = App(app_ui, server)
