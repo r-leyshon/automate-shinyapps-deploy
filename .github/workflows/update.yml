@@ -23,3 +23,4 @@ jobs:
       - name: Deploy to rsconnect
         run: |
           rsconnect deploy shiny ./ --name rsconnect-server  --title "test schedule deploy”
+          
