@@ -22,5 +22,5 @@ jobs:
           rsconnect add --account ${{ vars.RSCONNECT_USERNAME }} --name rsconnect-server --token ${{ secrets.RSCONNECT_TOKEN }} --secret ${{ secrets.RSCONNECT_SECRET }}
       - name: Deploy to rsconnect
         run: |
-          rsconnect deploy shiny ./ --name rsconnect-server  --title test-schedule-deploy
+          rsconnect deploy shiny --app-id ${{ secrets.APP_ID }} ./ --name rsconnect-server  --title organisation-bounty-board
           
