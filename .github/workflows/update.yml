@@ -20,7 +20,7 @@ jobs:
           python3 save_time.py
       - name: Configure rsconnect
         run: |
-          rsconnect add --account ${{ github.RSCONNECT_USERNAME }} --name rsconnect-server --token ${{ secrets.RSCONNECT_TOKEN }} --secret ${{ secrets.RSCONNECT_SECRET }}
+          rsconnect add --account ${{ vars.RSCONNECT_USERNAME }} --name rsconnect-server --token ${{ secrets.RSCONNECT_TOKEN }} --secret ${{ secrets.RSCONNECT_SECRET }}
       - name: Deploy to rsconnect
         run: |
           rsconnect deploy shiny ./ --name rsconnect-server  --title test-schedule-deploy
