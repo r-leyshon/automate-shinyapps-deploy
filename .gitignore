@@ -1,5 +1,6 @@
 # local conda environment
 /condaenv/
+/rsconnect-python/
 
 # Created by https://www.toptal.com/developers/gitignore/api/macos
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos
