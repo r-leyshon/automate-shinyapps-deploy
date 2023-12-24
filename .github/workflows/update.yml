@@ -1,7 +1,8 @@
 name: Update Application
 on:
-  schedule:
-    - cron: '*/5 * * * *'
+    push
+#   schedule:
+#     - cron: '*/5 * * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -20,7 +21,4 @@ jobs:
       - name: Configure rsconnect
         run: |
           rsconnect add --account ${{ secrets.RSCONNECT_USERNAME }} --name rsconnect-server --token ${{ secrets.RSCONNECT_TOKEN }} --secret ${{ secrets.RSCONNECT_SECRET }}
-      - name: Deploy to rsconnect
-        run: |
           rsconnect deploy shiny ./ --name rsconnect-server  --title "test schedule deploy”
-          
