@@ -1,3 +1,7 @@
+# readme previews
+*.html
+README_files/
+
 # local conda environment
 /condaenv/
 /rsconnect-python/
