@@ -7,6 +7,22 @@ a weekly basis by GitHub Actions.
 
 ## Workflow Guide
 
+```mermaid
+flowchart TD
+    A[update.yml] ==>|Friday @ 00:00| B(Job: Install dependencies)
+    B ==> C(Job: Run save_time.py)
+    C -->|write datetime.now| D[saved_time.txt]
+    C ==> E(Job: Configure rsconnect)
+    H([RSCONNECT_USERNAME
+    RSCONNECT_TOKEN
+    RSCONNECT_SECRET
+    ]) -.-> C
+    E ==> F(Job: Deploy to rsconnect)
+    K([APP_ID]) -.-> F
+    F ==> G{{shinyapps.io: serve app.py}}
+    D -.->|python -m shiny run app.py| G
+```
+
 The [GitHub Actions workflow file](/./.github/workflows/update.yml) expects the
 repository to have configured:
 
