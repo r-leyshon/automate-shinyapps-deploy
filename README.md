@@ -1,9 +1,11 @@
 # automate-shinyapps-deploy
 Setup required for automated deploy to shinyapps.io
 
-A [minimal python shiny application](https://richleysh84.shinyapps.io/test-schedule-deploy/)
+A [minimal python shiny application](https://richleysh84.shinyapps.io/scheduled-deployment/)
 displays the time it was deployed to shinyapps.io servers. This is deployed on
 a weekly basis by GitHub Actions. 
+
+## Workflow Guide
 
 The [GitHub Actions workflow file](/./.github/workflows/update.yml) expects the
 repository to have configured:
@@ -15,7 +17,7 @@ repository to have configured:
     - `RSCONNECT_SECRET`
     - `APP_ID`
 
-Note the workflow deploys to an application called `organisation-bounty-board`.
+Note the workflow deploys to an application called `scheduled-deployment`.
 Update this title for your use case.
 
 For help on finding values for shinyapps tokens & secrets, consult
