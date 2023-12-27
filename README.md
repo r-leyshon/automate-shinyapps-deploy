@@ -8,12 +8,12 @@ a weekly basis by GitHub Actions.
 ## Workflow Guide
 
 ```mermaid
-flowchart TD
+flowchart LR
     A[update.yml] ==>|Friday 00:00| B(Job: Install dependencies)
     B ==> C(Job: Run save_time.py)
     C -->|write datetime.now| D[saved_time.txt]
     C ==> E(Job: Configure rsconnect)
-    H([RSCONNECT_USERNAME\nRSCONNECT_TOKEN\nRSCONNECT_SECRET]) -.-> C
+    H([RSCONNECT_USERNAME\nRSCONNECT_TOKEN\nRSCONNECT_SECRET]) -.-> E
     E ==> F(Job: Deploy to rsconnect)
     K([APP_ID]) -.-> F
     F ==> G{{shinyapps.io: serve app.py}}
