@@ -9,7 +9,7 @@ a weekly basis by GitHub Actions.
 
 ```mermaid
 flowchart LR
-    A[update.yml] ==>|Friday 00:00| B(Job: Install dependencies)
+    A[update.yml] ==>|Saturday 00:00| B(Job: Install dependencies)
     B ==> C(Job: Run save_time.py)
     C -->|write datetime.now| D[saved_time.txt]
     C ==> E(Job: Configure rsconnect)
