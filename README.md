@@ -13,7 +13,7 @@ flowchart LR
     B ==> C(Job: Run save_time.py)
     C -->|write datetime.now| D[saved_time.txt]
     C ==> E(Job: Configure rsconnect)
-    H([RSCONNECT_USERNAME\nRSCONNECT_TOKEN\nRSCONNECT_SECRET]) -.-> E
+    H([SHINYAPPS_USERNAME\nSHINYAPPS_TOKEN\nSHINYAPPS_SECRET]) -.-> E
     E ==> F(Job: Deploy to rsconnect)
     K([APP_ID]) -.-> F
     F ==> G{{shinyapps.io: serve app.py}}
@@ -24,10 +24,10 @@ The [GitHub Actions workflow file](/./.github/workflows/update.yml) expects the
 repository to have configured:
 
 - environment variables
-    - `RSCONNECT_USERNAME`
+    - `SHINYAPPS_USERNAME`
 - secrets
-    - `RSCONNECT_TOKEN`
-    - `RSCONNECT_SECRET`
+    - `SHINYAPPS_TOKEN`
+    - `SHINYAPPS_SECRET`
     - `APP_ID`
 
 Note the workflow deploys to an application called `scheduled-deployment`.
